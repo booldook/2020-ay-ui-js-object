@@ -30,17 +30,26 @@ var Box = (function(){
 
 
 
-
+var prd = [];
 $.ajax({
 	url: "../json/products.json",
 	type: "get",
 	dataType: "json",
 	success: function(res) {
 		for(var i in res.products) {
-			new Product(res.products[i], ".prd-wrap", ".prd");
+			prd[i] = new Product(res.products[i], ".prd-wrap", ".prd");
 		}
+		console.log(prd);
 	},
 	error: function(xhr) {
 		console.log(xhr);
 	}
 });
+
+/*
+var a = $(".wrap").append('<div class="box"></div>');
+console.log(a);
+
+var b = $('<div class="box"></div>').appendTo($(".wrap"));
+console.log(b);
+*/
