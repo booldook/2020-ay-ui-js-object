@@ -25,5 +25,5 @@ var Box = (function(){
 })();
 
 // 실행
-var box = new Box($(".wrapper"), "box", "blue", "red", 100, 100);
-var box2 = new Box($(".wrapper"), "box", "orange", "green", 150, 150);
+// var box = new Box($(".wrapper"), "box", "blue", "red", 100, 100);
+// var box2 = new Box($(".wrapper"), "box", "orange", "green", 150, 150);
