@@ -27,3 +27,20 @@ var Box = (function(){
 // 실행
 // var box = new Box($(".wrapper"), "box", "blue", "red", 100, 100);
 // var box2 = new Box($(".wrapper"), "box", "orange", "green", 150, 150);
+
+
+
+
+$.ajax({
+	url: "../json/products.json",
+	type: "get",
+	dataType: "json",
+	success: function(res) {
+		for(var i in res.products) {
+			new Product(res.products[i], ".prd-wrap", ".prd");
+		}
+	},
+	error: function(xhr) {
+		console.log(xhr);
+	}
+});
