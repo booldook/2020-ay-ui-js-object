@@ -130,3 +130,96 @@ var arr = new Array();
 arr.booldook(function(v){
 	console.log("booldook " + v);
 });
+
+
+var a = 1;
+var b = [1, 2, 3, "A"];
+var c = {
+	id: "1",
+	name: "홍길동"
+};
+
+var d = [
+	{id: 1, name: "홍길동"},
+	function() {
+		console.log("hi~");
+	},
+	["A", "B", "C"]
+];
+
+var e = function() {
+
+}
+
+d[1]();
+console.log( d[2][2] );
+
+
+var f = [[1, 2], [3, 4]];
+console.log(f[1][1]);
+
+function fn() {
+
+}
+
+var fn2 = function(){
+
+}
+
+function sum(a, b) {
+	return a + b;
+}
+function sub(a, b) {
+	return a - b;
+}
+function multi(a, b) {
+	return a * b;
+}
+function divide(a, b) {
+	return a / b;
+}
+
+console.clear();
+
+var n = calc(10, 20, "multi");
+console.log(n);
+
+function calc(a, b, type) {
+	switch(type) {
+		case "sum":
+			return a + b;
+		case "sub":
+			return a - b;
+		case "multi":
+			return a * b;
+		case "divide":
+			return a / b;
+		default:
+			return "연산실패";
+	}
+}
+
+var Calc = (function(){
+	function Calc() {
+
+	}
+	Calc.prototype.sum = function(a, b) {
+		return a + b;
+	}
+	Calc.prototype.sub = function(a, b) {
+		return a - b;
+	}
+	Calc.prototype.multi = function(a, b) {
+		return a * b;
+	}
+	Calc.prototype.divide = function(a, b) {
+		return a / b;
+	}
+	return Calc;
+})();
+
+
+var myCalc = new Calc();
+console.log(myCalc.sum(10, 20));
+
+
