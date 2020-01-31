@@ -37,7 +37,7 @@ $.ajax({
 	dataType: "json",
 	success: function(res) {
 		for(var i in res.products) {
-			prd[i] = new Product(res.products[i], ".prd-wrap", ".prd");
+			prd[i] = new Product(res.products[i], ".products", ".product");
 		}
 		console.log(prd);
 	},

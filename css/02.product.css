@@ -3,12 +3,12 @@
 	margin: 0 auto;
 }
 
-.prd-wrap {
+.products {
 	display: flex;
 	flex-wrap: wrap;
 }
 
-.prd {
+.product {
 	flex: 23% 0 0;
 	margin: 1%;
 }

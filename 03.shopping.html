@@ -9,23 +9,30 @@
 	<link rel="stylesheet" href="./css/animate.css">
 	<link rel="stylesheet" href="./css/bootstrap.min.css">
 	<link rel="stylesheet" href="./css/base.css">
-	<link rel="stylesheet" href="./css/02.product.css">
 	<script src="./js/jquery-3.4.1.min.js"></script>
 	<script src="./js/popper.min.js"></script>
 	<script src="./js/bootstrap.min.js"></script>
 	<script src="./js/imagesloaded.pkgd.min.js"></script>
 	<script src="./js/wow.min.js"></script>
+	<script src="./js/Product.js"></script>
+	<style>
+	.wrap {
+		width: 100%;
+		max-width: 900px;
+		margin: 0 auto;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.p {flex: 23% 0 0; margin: 1%;}
+	</style>
 </head>
 <body>
 	<div class="wrap">
-		
+
 	</div>
-	<div class="wrapper">
-		<div class="products">
-			
-		</div>
-	</div>
-	<script src="./js/Product.js"></script>
-	<script src="./js/02.product.js"></script>
+	<script>
+	new Product({src: "./img/p5.jpg", title:"테스트 상품", price:"25,000원"}, ".wrap", ".p");
+	new Product({src: "./img/p6.jpg", title:"테스트 상품2", price:"28,000원"}, ".wrap", ".p");
+	</script>
 </body>
 </html>
