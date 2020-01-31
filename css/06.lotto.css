@@ -1,0 +1,19 @@
+/*
+ 1: #fac307
+10: #67c9ee
+20: #ff716e
+30: #aaa
+40: #aeda3d
+*/
+.color00 {background-color: #fac307; color: #fff;}
+.color10 {background-color: #67c9ee; color: #fff;}
+.color20 {background-color: #ff716e; color: #fff;}
+.color30 {background-color: #aaa; color: #fff;}
+.color40 {background-color: #aeda3d; color: #fff;}
+
+.ball {width: 60px; height: 60px; border-radius: 50%; text-align: center; line-height: 60px; text-shadow: 0 0 8px rgba(0,0,0,0.3); flex: 60px 0 0; margin: 0 6px; font-size: 30px;}
+.ball-sm {width: 30px; height: 30px; border-radius: 50%; text-align: center; line-height: 30px; text-shadow: 0 0 4px rgba(0,0,0,0.3); flex: 30px 0 0; margin: 0 3px;}
+
+.lt-wrap {border-right: 1px solid #ccc;}
+.lt-box {display: flex; justify-content: center; align-items: center; padding: 0 4px;}
+.rt-box {display: flex; justify-content: center; align-items: center; padding: 0 8px;}
