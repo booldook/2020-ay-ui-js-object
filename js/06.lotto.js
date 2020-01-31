@@ -63,3 +63,4 @@ function onReset() {
 	document.querySelector(".lt-wrap").innerHTML = '';
 	document.querySelector(".rt-box").innerHTML = '';
 }
+

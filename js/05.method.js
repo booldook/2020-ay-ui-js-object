@@ -1,4 +1,4 @@
-/* 배열과 관련된 메소드 */
+/********** 배열과 관련된 메소드 **********/
 var arr = new Array();
 
 // 데이터 추가
@@ -58,3 +58,30 @@ temp.pop();
 temp.pop();
 console.log(temp, lottoArr);
 
+
+
+/********** Iteration **********/
+var arr = ["A", "B", "C", "D"];
+var len = arr.length;
+for(var i=0; i<len; i++) {
+	console.log(arr.shift());
+}
+console.log(arr);
+
+arr = ["A", "B", "C", "D"];
+for(var i in arr) {
+	console.log(arr[i]);
+}
+
+// 얘는 ES6(explorer-안됨) 쓸수없음 (node, vue, react 사용가능)
+for(var v of arr) {
+	console.log(v);
+}
+
+var users = [
+	{id: 1, name: "홍길동", age: 25},
+	{id: 2, name: "홍길순", age: 28},
+	{id: 3, name: "홍길만", age: 32},
+	{id: 4, name: "홍길룡", age: 38},
+	{id: 5, name: "홍길영", age: 42}
+];
