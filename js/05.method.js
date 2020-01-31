@@ -78,6 +78,8 @@ for(var v of arr) {
 	console.log(v);
 }
 
+console.clear();
+
 var users = [
 	{id: 1, name: "홍길동", age: 25},
 	{id: 2, name: "홍길순", age: 28},
@@ -85,3 +87,46 @@ var users = [
 	{id: 4, name: "홍길룡", age: 38},
 	{id: 5, name: "홍길영", age: 42}
 ];
+
+for(var i in users) {
+	users[i].age++;
+}
+
+var ARRAY = (function(){
+	function ARRAY() {
+
+	}
+	ARRAY.prototype.booldook = function(){
+		
+	}
+	return ARRAY;
+})();
+
+var ARR = new ARRAY();
+console.log(ARR);
+
+users.forEach(function(v, i, a){
+	console.log(v, i, a);
+	v.age++;
+});
+console.log(users);
+
+Array.prototype.booldook = function(fn){
+	
+}
+var arr = new Array();
+console.log(arr);
+
+arr.booldook(function(){
+
+});
+
+Array.prototype.booldook = function(fn) {
+	var v = "좋아요";
+	fn(v);
+}
+var arr = new Array();
+
+arr.booldook(function(v){
+	console.log("booldook " + v);
+});
