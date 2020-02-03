@@ -389,3 +389,50 @@ var str = str1.concat(str2);
 console.log(str);
 console.log(str.trim());
 
+
+/* Math */
+// Math.round(), ceil(), floor(), random(), pow(), abs()
+console.clear();
+var n = Math.pow(2, 64);
+console.log(n);
+
+var arr = [1, 5, 9, 22, 44, -4];
+var max = _.max(arr);
+var min = _.min(arr);
+console.log(max, min);
+
+var temp = arr.sort(function(a, b) {
+	return a - b;
+});
+var max = temp[temp.length-1];
+var min = temp[0];
+console.log(min, max);
+
+
+/* Date Methods */
+console.clear();
+
+function zp(n) {
+	if(n < 10) return "0"+n;
+	else return n;
+}
+
+var date = new Date();
+console.log(date);
+// 2020-02-03 13:03:12
+var y = date.getFullYear();
+var m = zp(date.getMonth() + 1);
+var d = zp(date.getDate());
+var h = zp(date.getHours());
+var i = zp(date.getMinutes());
+var s = zp(date.getSeconds());
+var yoil = date.getDay();
+var ts = date.getTime();
+
+var isoDate = y+"-"+m+"-"+d+" "+h+":"+i+":"+s;
+console.log(y, m, d, h, i, s, yoil);
+console.log(isoDate);
+console.log("Time stamp: "+ ts);
+
+var oldDate = new Date('2019-12-12');
+console.log(oldDate);
