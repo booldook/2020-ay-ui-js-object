@@ -268,14 +268,14 @@ std.split(" ").forEach(function(v, i){
 console.log(stdArr);
 
 var users = [
-	{name: "홍길동", age: 25, gender: "M", order: 5},
-	{name: "홍길만", age: 34, gender: "M", order: 1},
-	{name: "홍길룡", age: 28, gender: "M", order: 12},
-	{name: "홍길순", age: 53, gender: "F", order: 102},
-	{name: "홍길숙", age: 15, gender: "F", order: 3},
-	{name: "홍길이", age: 22, gender: "M", order: 2},
-	{name: "홍길삼", age: 35, gender: "M", order: 1},
-	{name: "홍길사", age: 45, gender: "M", order: 1},
-	{name: "홍길오", age: 35, gender: "M", order: 5},
-	{name: "홍길윤", age: 25, gender: "F", order: 13}
+	{name: "홍길동", age: 25, gender: "M", order: 5, point:5000},
+	{name: "홍길만", age: 34, gender: "M", order: 1, point:1000},
+	{name: "홍길룡", age: 28, gender: "M", order: 12, point:2200},
+	{name: "홍길순", age: 53, gender: "F", order: 102, point:3000},
+	{name: "홍길숙", age: 15, gender: "F", order: 3, point:6000},
+	{name: "홍길이", age: 22, gender: "M", order: 2, point:3000},
+	{name: "홍길삼", age: 35, gender: "M", order: 1, point:7000},
+	{name: "홍길사", age: 45, gender: "M", order: 1, point:4500},
+	{name: "홍길오", age: 35, gender: "M", order: 5, point:3500},
+	{name: "홍길윤", age: 25, gender: "F", order: 13, point:3300}
 ];
