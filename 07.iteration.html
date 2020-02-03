@@ -5,14 +5,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>반복문</title>
+	<link rel="stylesheet" href="./css/fa.min.css">
 	<link rel="stylesheet" href="./css/base.css">
 	<script src="./js/jquery-3.4.1.min.js"></script>
 	<style>
 		.navi-wrap {width: 100%; position: fixed; top: 0; left: 0; background-color: rgba(0, 0, 0, 0.7); color: #fff; display: flex; justify-content: space-between; align-items: center;}
+		#bt-lt {position: relative; cursor: pointer; margin-right: 12px;}
 		.logo {padding: 1rem;}
 		.navis {display: flex;}
 		.navi {padding: 1rem; cursor: pointer;}
+		.lt-wrap {width: 200px; height: calc(100vh - 48px); position: fixed; bottom: 0; background-color: rgba(0, 0, 0, 0.7); left: -200px;}
 		.section {height: 100vh;}
+		.section h1 {padding: 60px;}
 		.section:nth-child(1) {background-color: aquamarine; height: 150vh;}
 		.section:nth-child(2) {background-color: #ffe87f;}
 		.section:nth-child(3) {background-color: #75e07a; height: 80vh;}
@@ -23,7 +27,10 @@
 <body>
 	<div class="wrap">
 		<div class="navi-wrap">
-			<div class="logo">LOGO</div>
+			<div class="logo">
+				<i class="fa fa-bars" id="bt-lt"></i>
+				LOGO
+			</div>
 			<ul class="navis">
 				<li class="navi">PAGE1</li>
 				<li class="navi">PAGE2</li>
@@ -32,12 +39,15 @@
 				<li class="navi">PAGE5</li>
 			</ul>
 		</div>
+		<div class="lt-wrap">
+
+		</div>
 		<div>
-			<div class="section"></div>
-			<div class="section"></div>
-			<div class="section"></div>
-			<div class="section"></div>
-			<div class="section"></div>
+			<div class="section"><h1>PAGE1</h1></div>
+			<div class="section"><h1>PAGE2</h1></div>
+			<div class="section"><h1>PAGE3</h1></div>
+			<div class="section"><h1>PAGE4</h1></div>
+			<div class="section"><h1>PAGE5</h1></div>
 		</div>
 	</div>
 
@@ -92,6 +102,17 @@
 			// tar.push($(this).innerHeight() * i);
 		});
 		$("html, body").stop().animate({"scrollTop": tar[now]+"px"}, 300);
+	}
+	$("#bt-lt").click(onLeft);
+	function onLeft() {
+		if($(this).hasClass("fa-bars")) {
+			$(this).removeClass("fa-bars").addClass("fa-arrow-left");
+			$(".lt-wrap").stop().animate({"left": 0}, 300);
+		}
+		else {
+			$(this).removeClass("fa-arrow-left").addClass("fa-bars");
+			$(".lt-wrap").stop().animate({"left": "-100%"}, 300);
+		}
 	}
 	</script>
 </body>
