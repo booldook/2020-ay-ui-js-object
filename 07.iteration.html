@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>반복문</title>
+	<link rel="stylesheet" href="./css/base.css">
+	<script src="./js/jquery-3.4.1.min.js"></script>
+	<style>
+		.navi-wrap {width: 100%; position: fixed; top: 0; left: 0; background-color: rgba(0, 0, 0, 0.7); color: #fff; display: flex; justify-content: space-between; align-items: center;}
+		.logo {padding: 1rem;}
+		.navis {display: flex;}
+		.navi {padding: 1rem; cursor: pointer;}
+		.section {height: 100vh;}
+		.section:nth-child(1) {background-color: aquamarine;}
+		.section:nth-child(2) {background-color: #ffe87f;}
+		.section:nth-child(3) {background-color: #75e07a;}
+		.section:nth-child(4) {background-color: #77c7ec;}
+		.section:nth-child(5) {background-color: #a16ee2;}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="navi-wrap">
+			<div class="logo">LOGO</div>
+			<ul class="navis">
+				<li class="navi">PAGE1</li>
+				<li class="navi">PAGE2</li>
+				<li class="navi">PAGE3</li>
+				<li class="navi">PAGE4</li>
+				<li class="navi">PAGE5</li>
+			</ul>
+		</div>
+		<div>
+			<div class="section"></div>
+			<div class="section"></div>
+			<div class="section"></div>
+			<div class="section"></div>
+			<div class="section"></div>
+		</div>
+	</div>
+
+
+	<script>
+	var users = [
+		{name: "홍길동", age: 25, gender: "M", order: 5, point:5000},
+		{name: "홍길만", age: 34, gender: "M", order: 1, point:1000},
+		{name: "홍길룡", age: 28, gender: "M", order: 12, point:2200},
+		{name: "홍길순", age: 53, gender: "F", order: 102, point:3000},
+		{name: "홍길숙", age: 15, gender: "F", order: 3, point:6000},
+		{name: "홍길이", age: 22, gender: "M", order: 2, point:3000},
+		{name: "홍길삼", age: 35, gender: "M", order: 1, point:7000},
+		{name: "홍길사", age: 45, gender: "M", order: 1, point:4500},
+		{name: "홍길오", age: 35, gender: "M", order: 5, point:3500},
+		{name: "홍길윤", age: 25, gender: "F", order: 13, point:3300}
+	];
+
+	for(var i=0; i<users.length; i++) {
+		console.log(users[i]);
+	}
+
+	for(var i in users) {
+		console.log(users[i]);
+	}
+
+	users.forEach(function(v, i){
+		console.log(i, v);
+	});
+
+	// ES6
+	for(var v of users) {
+		console.log(v);
+	}
+
+	for(var [k, v] of Object.entries(users)) {
+		console.log(k, v);
+	}
+
+	$(".navi").click(onNavi);
+	function onNavi() {
+		
+	}
+	</script>
+</body>
+</html>
