@@ -223,3 +223,46 @@ var myCalc = new Calc();
 console.log(myCalc.sum(10, 20));
 
 
+// push(), pop(), unshift(), shift(), splice()
+var arr = ["A", "B", "C", "D", "E"];
+console.log(arr.push("F")); // ["A", "B", "C", "D", "E", "F"]
+console.log(arr.unshift("Z")); // ["Z", "A", "B", "C", "D", "E", "F"]
+
+// arr.splice(startIndex, length, [addData]);
+var n = arr.splice(3, 1); // n = "C", ["Z", "A", "B", "D", "E", "F"]
+console.log(n, arr);
+arr.splice(3, 0, "W");
+console.log(arr); // ["Z", "A", "B", "W", "D", "E", "F"]
+
+// arr.slice(startIndex, [lastIndex])
+var arr = ["A", "B", "C", "D", "E"];
+var arr2 = arr.slice(1, 3);
+console.log(arr, arr2);
+var arr3 = arr.slice(0); // Array DeepCopy(HardCopy)
+console.log(arr, arr3);
+arr3.push("F");
+console.log(arr, arr3);
+
+// arr.concat(array)
+var arr = ["A", "B", "C", "D", "E"];
+var arr2 = ["F", "G", "H", "I", "J"];
+var arr3 = arr.concat(arr2);
+console.log(arr3);
+
+// 문자열.split("구분자");
+var tel = "010-8332-8040";
+var telArr = tel.split("-");
+console.log(telArr);
+
+var std = "홍길동,76,33,56 홍길만,67,44,67 홍길순,78,55,78 홍길이,89,66,89 홍길영,89,77,89";
+//var stdArr1 = std.split(" ");
+var stdArr = [];
+std.split(" ").forEach(function(v, i){
+	var arr = v.split(",");
+	stdArr[i] = {};
+	stdArr[i].name = arr[0];
+	stdArr[i].kor = arr[1];
+	stdArr[i].eng = arr[2];
+	stdArr[i].math = arr[3];
+});
+console.log(stdArr);
