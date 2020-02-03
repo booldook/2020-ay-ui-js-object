@@ -249,10 +249,17 @@ var arr2 = ["F", "G", "H", "I", "J"];
 var arr3 = arr.concat(arr2);
 console.log(arr3);
 
-// 문자열.split("구분자");
+// 문자열.split("구분자") : 문자열을 배열로...
+// 배열.join("구분자") : 배열을 구분자로 연결하여 문자열로...
+// 배열.toString() : 배열을 ,로 연결하여 문자열로... == 배열.join(',')
 var tel = "010-8332-8040";
 var telArr = tel.split("-");
 console.log(telArr);
+var tel2 = telArr.join("-");
+console.log(tel2);
+var chars = ["A", "B", "C"];
+var char = chars.toString();
+console.log(char);
 
 var std = "홍길동,76,33,56 홍길만,67,44,67 홍길순,78,55,78 홍길이,89,66,89 홍길영,89,77,89";
 //var stdArr1 = std.split(" ");
@@ -267,6 +274,8 @@ std.split(" ").forEach(function(v, i){
 });
 console.log(stdArr);
 
+
+// filter, map, sort, reverse
 var users = [
 	{name: "홍길동", age: 25, gender: "M", order: 5, point:5000},
 	{name: "홍길만", age: 34, gender: "M", order: 1, point:1000},
@@ -279,3 +288,44 @@ var users = [
 	{name: "홍길오", age: 35, gender: "M", order: 5, point:3500},
 	{name: "홍길윤", age: 25, gender: "F", order: 13, point:3300}
 ];
+
+// 회원중 25세 이상인 회원을 찾아내시오.
+var user25 = [];
+users.forEach(function(v, i) {
+	if(v.age >= 25) user25.push(v);
+});
+console.log(user25);
+// console.clear();
+
+// array.filter(fn) - 데이터 필터링
+var user30 = users.filter(function(v) {
+	return v.age >= 30;
+});
+console.log(user30);
+
+// array.map(fn) - 데이터 매핑
+var user1000 = users.map(function(v) {
+	v.point += 1000;
+	return v;
+});
+console.log(user1000);
+
+var userSort = _.sortBy(users, function(v){
+	return v.name;
+});
+console.log(userSort);
+
+var cnt2 = users.sort(function(a, b){
+	return a.age - b.age;
+});
+console.log(cnt2);
+console.log(cnt2.reverse()); // arr.reverse() 배열의 순서를 바꿔준다.
+
+// ES6 - entries, keys
+for(var [k, v] of Object.entries(users)) {
+	for(var [k2, v2] of Object.entries(v)){
+		console.log(k2, v2);
+	}
+}
+
+
