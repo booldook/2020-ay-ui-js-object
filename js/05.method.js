@@ -329,3 +329,63 @@ for(var [k, v] of Object.entries(users)) {
 }
 
 
+/* Number Method */
+// 값.toString(); 	값을 문자열로...
+// 값.parseInt(); 	값을 정수로...
+// 값.parseFloat(); 값을 실수로...
+// Number(값); 			값을 숫자로...
+// 값.toFixed(2); 	값을 소수점 2자리로 표현
+
+/* String Method */
+// n = 문자열.indexOf('찾을문자열'); n == -1 (못찾음), n > -1 (찾음)
+var str = "Please locate where 'locate' occurs!";
+var pos = str.indexOf("wq");
+console.clear();
+console.log(pos);
+
+// users 에서 이름에서 '만'을 포함하는 사람을 찾으세요~
+var userMan = users.filter(function(v){
+	return v.name.indexOf('만') > -1;
+});
+console.log(userMan);
+
+// str = 문자열.replace("찾을문자열", "바꿀문자열"); str에는 바껴진 문자열 전체가 들어감
+var str = "아버지가 방에 들어가신다.";
+var str2 = str.replace("아버지", "어머니");
+console.log(str2); //어머니가 방에 들어가신다.
+
+// [이쁘다샵] 가디건 (노랑)
+var userKang = users.map(function(v) {
+	v.name = v.name.replace("홍", "강");
+	return v;
+});
+console.log(userKang);
+
+
+// 문자열.substr(startIndex, length);
+// 문자열.substring(startIndex, endIndex);
+var dateTime = "2020-02-03 12:18:22";
+var date = dateTime.substr(0, 10);
+var date2 = dateTime.substring(0, 10);
+console.log(date, date2);
+var date3 = dateTime.substr(11, 5);
+var date4 = dateTime.substring(11, 16);
+console.log(date3, date4);
+var date5 = dateTime.substr(11);
+var date6 = dateTime.substring(11);
+console.log(date5, date6);
+
+// 문자열.toLowerCase(); 모든 문자를 소문자로..
+// 문자열.toUpperCase(); 모든 문자를 대문자로..
+
+var productName = "Pretty Yellow Skirt";
+var result = productName.toLowerCase().indexOf(("skiRt").toLowerCase());
+console.log(result);
+
+// concat(), trim()
+var str1 = "  가나다라   " ;
+var str2 = " 마바사아  ";
+var str = str1.concat(str2);
+console.log(str);
+console.log(str.trim());
+
