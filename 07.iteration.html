@@ -13,9 +13,9 @@
 		.navis {display: flex;}
 		.navi {padding: 1rem; cursor: pointer;}
 		.section {height: 100vh;}
-		.section:nth-child(1) {background-color: aquamarine;}
+		.section:nth-child(1) {background-color: aquamarine; height: 150vh;}
 		.section:nth-child(2) {background-color: #ffe87f;}
-		.section:nth-child(3) {background-color: #75e07a;}
+		.section:nth-child(3) {background-color: #75e07a; height: 80vh;}
 		.section:nth-child(4) {background-color: #77c7ec;}
 		.section:nth-child(5) {background-color: #a16ee2;}
 	</style>
@@ -77,9 +77,21 @@
 		console.log(k, v);
 	}
 
+
+	// 스크롤 페이지
+	// $("html, body").stop().animate({"scrollTop": "2000px"}, 2000);
+	console.clear();
+	
 	$(".navi").click(onNavi);
 	function onNavi() {
-		
+		var tar = [];
+		var now = $(this).index();
+		$(".section").each(function(i){
+			// console.log($(this).offset());
+			tar.push(	$(this).offset().top	);
+			// tar.push($(this).innerHeight() * i);
+		});
+		$("html, body").stop().animate({"scrollTop": tar[now]+"px"}, 300);
 	}
 	</script>
 </body>
