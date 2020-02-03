@@ -436,3 +436,6 @@ console.log("Time stamp: "+ ts);
 
 var oldDate = new Date('2019-12-12');
 console.log(oldDate);
+
+var isoDate = moment().format('YYYY-MM-DD HH:mm:ss');
+console.log(isoDate);
