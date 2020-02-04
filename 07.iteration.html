@@ -92,17 +92,12 @@
 	// $("html, body").stop().animate({"scrollTop": "2000px"}, 2000);
 	console.clear();
 	
+	var now = 0;
+	var tar = [];
 	$(".navi").click(onNavi);
 	function onNavi() {
-		var tar = [];
-		var now = $(this).index();
-		$(".section").each(function(i){
-			// console.log($(this).offset());
-			tar.push(	$(this).offset().top	);
-			// tar.push($(this).innerHeight() * i);
-		});
-		$("html, body").stop().animate({"scrollTop": tar[now]+"px"}, 300);
-		// $(".lt-wrap").stop().animate({"top": tar[now]+"px"}, 300);
+		now = $(this).index();
+		sectionAni();
 	}
 	$("#bt-lt").click(onLeft);
 	function onLeft() {
@@ -140,23 +135,35 @@
 	function onWheel() {
 		event.preventDefault();
 		var pos = event.pageY;
-		var now = $(".section").length;
+		now = $(".section").length - 1;
 		
 		for(var i=0; i<$(".section").length; i++) {
 			sectionPos = $(".section").eq(i).offset().top;
 			if(pos < sectionPos) {
-				now = i;
+				now = i - 1;
 				break;
 			}
 		}
 		console.log(now);
-		
 		if(event.wheelDelta > 0) {
 			console.log("위로");
+			if(now > 0) now--;
 		}
 		else {
 			console.log("아래로");
+			if(now < $(".section").length - 1) now++;
 		}
+		sectionAni();
+	}
+
+	function sectionAni() {
+		$(".section").each(function(i){
+			// console.log($(this).offset());
+			tar[i] = $(this).offset().top;
+			// tar.push($(this).innerHeight() * i);
+		});
+		$("html, body").stop().animate({"scrollTop": tar[now]+"px"}, 300);
+		// $(".lt-wrap").stop().animate({"top": tar[now]+"px"}, 300);
 	}
 	</script>
 </body>
