@@ -121,7 +121,43 @@
 		}
 	}
 
-	WheelEvent
+	/*
+	document.querySelector(".rt-wrap").addEventListener("wheel", onWheel);
+	function onWheel() {
+		console.log("휠!!");
+	}
+	$("body").on('mousewheel DOMMouseScroll', function(){
+		console.log("wheel");
+	});
+
+
+	console.log(	this	); 				JS
+	console.log(	$(this)	);			JS -> jQuery
+	console.log(	$(this)[0]	);  jQuery -> JS
+	*/
+
+	document.querySelector(".wrap").addEventListener("wheel", onWheel, {passive: false});
+	function onWheel() {
+		event.preventDefault();
+		var pos = event.pageY;
+		var now = $(".section").length;
+		
+		for(var i=0; i<$(".section").length; i++) {
+			sectionPos = $(".section").eq(i).offset().top;
+			if(pos < sectionPos) {
+				now = i;
+				break;
+			}
+		}
+		console.log(now);
+		
+		if(event.wheelDelta > 0) {
+			console.log("위로");
+		}
+		else {
+			console.log("아래로");
+		}
+	}
 	</script>
 </body>
 </html>
