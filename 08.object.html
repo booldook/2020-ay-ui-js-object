@@ -1,0 +1,53 @@
+<script src="./js/lodash.min.js"></script>
+<script>
+var obj = {}
+obj.name = "홍길동";
+obj.age = 28;
+obj.speak = function(word){
+	console.log(this.name + "이(가) " + word + "라고 외칩니다.");
+}
+obj.eat = function(food){
+	console.log(this.name + "이(가) " + food + "을(를) 먹습니다.");
+}
+
+var obj2 = {
+	name: "홍길순",
+	age: 25,
+	speak: function(word){
+		console.log(this.name + "이(가) " + word + "라고 외칩니다.");
+	},
+	eat: function(food){
+		console.log(this.name + "이(가) " + food + "을(를) 먹습니다.");
+	}
+}
+
+console.log(obj, obj2);
+obj.speak("ㅎㅎㅎ");
+obj2.speak("ㅎㅎㅎ");
+
+
+
+var Person = (function(){
+	function Person(name, age) {
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.speak = function(word) {
+		console.log(this.name + "이(가) " + word + "라고 외칩니다.");
+	}
+	Person.prototype.eat = function(food) {
+		console.log(this.name + "이(가) " + food + "을(를) 먹습니다.");
+	}
+	return Person;
+})();
+
+var hongs = [];
+hongs.push(new Person("홍길동", "1"));
+hongs.push(new Person("홍길순", "1"));
+hongs.push(new Person("홍길만", "1"));
+hongs.push(new Person("홍길룡", "1"));
+hongs.push(new Person("홍길형", "1"));
+
+for(var i in hongs) hongs[i].speak("똑같아!");
+for(var i in hongs) hongs[i].eat("밥!");
+</script>
