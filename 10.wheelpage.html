@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>반복문</title>
+	<link rel="stylesheet" href="./css/fa.min.css">
+	<link rel="stylesheet" href="./css/base.css">
+	<script src="./js/jquery-3.4.1.min.js"></script>
+	<style>
+		.navi-wrap {width: 100%; position: fixed; top: 0; right: 0; background-color: rgba(0, 0, 0, 0.7); color: #fff; display: flex; justify-content: space-between; align-items: center; z-index: 99;}
+		.logo {padding: 1rem;}
+		.navis {display: flex;}
+		.navi {padding: 1rem; cursor: pointer;}
+
+		.section {height: 100vh;}
+		.section h1 {padding: 60px;}
+		.section:nth-child(1) {background-color: aquamarine;}
+		.section:nth-child(2) {background-color: #ffe87f;}
+		.section:nth-child(3) {background-color: #75e07a;}
+		.section:nth-child(4) {background-color: #77c7ec;}
+		.section:nth-child(5) {background-color: #a16ee2;}
+	</style>
+</head>
+<body>
+	<div class="navi-wrap">
+		<div class="logo">
+			<i class="fa fa-bars" id="bt-lt"></i>
+			LOGO
+		</div>
+		<ul class="navis">
+			<li class="navi">PAGE1</li>
+			<li class="navi">PAGE2</li>
+			<li class="navi">PAGE3</li>
+			<li class="navi">PAGE4</li>
+			<li class="navi">PAGE5</li>
+		</ul>
+	</div>
+	<div class="wrap">
+		<div class="section"><h1>PAGE1</h1></div>
+		<div class="section"><h1>PAGE2</h1></div>
+		<div class="section"><h1>PAGE3</h1></div>
+		<div class="section"><h1>PAGE4</h1></div>
+		<div class="section"><h1>PAGE5</h1></div>
+	</div>
+
+
+	<script>
+	var now = 0;	// now: 현재페이지
+	var tar = [];	// 각 section의 y축 위치값
+	$(".navi").click(onNavi);
+	function onNavi() {
+		now = $(this).index();
+		sectionAni();
+	}
+
+	/*
+	document.querySelector(".rt-wrap").addEventListener("wheel", onWheel);
+	function onWheel() {
+		console.log("휠!!");
+	}
+	$("body").on('mousewheel DOMMouseScroll', function(){
+		console.log("wheel");
+	});
+
+
+	console.log(	this	); 				JS
+	console.log(	$(this)	);			JS -> jQuery
+	console.log(	$(this)[0]	);  jQuery -> JS
+	*/
+
+	document.querySelector(".wrap").addEventListener("wheel", onWheel, {passive: false});
+	function onWheel() {
+		event.preventDefault(); // 휠의 기본작동 막기, {passive: false}와 같다.
+		var pos = event.pageY;
+		now = $(".section").length - 1; // 마지막 now값
+		
+		// 이벤트가 발생한 section 찾기
+		for(var i=0; i<$(".section").length; i++) {
+			sectionPos = $(".section").eq(i).offset().top;
+			if(pos < sectionPos) {
+				now = i - 1;
+				break;
+			}
+		}
+		console.log(now);
+		
+		if(event.wheelDelta > 0) {
+			console.log("위로");
+			if(now > 0) now--;
+		}
+		else {
+			console.log("아래로");
+			if(now < $(".section").length - 1) now++;
+		}
+		sectionAni();
+	}
+
+	function sectionAni() {
+		$(".section").each(function(i){
+			tar[i] = $(this).offset().top;
+		});
+
+		$("html, body").stop().animate({"scrollTop": tar[now]+"px"}, 300);
+	}
+	</script>
+</body>
+</html>
